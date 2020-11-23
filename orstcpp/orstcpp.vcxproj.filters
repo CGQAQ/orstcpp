@@ -24,5 +24,8 @@
     <ClCompile Include="InsertionSort.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SelectionSort.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

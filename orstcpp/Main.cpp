@@ -5,6 +5,7 @@
 
 import BubbleSort;
 import InsertionSort;
+import SelectionSort;
 
 int main()
 {
@@ -21,9 +22,11 @@ int main()
 
 	auto bubbleResult = bubble_sort::sort(numbers);
 	auto insertionResult = insertion_sort::sort(numbers);
+	auto selectionResult = selection_sort::sort(numbers);
 
 	printResult("Bubble sort", bubbleResult);
 	printResult("Insertion sort", insertionResult);
+	printResult("Selection sort", selectionResult);
 
 	return 0;
 }
