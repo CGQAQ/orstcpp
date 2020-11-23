@@ -6,6 +6,7 @@
 import BubbleSort;
 import InsertionSort;
 import SelectionSort;
+import QuickSort;
 
 int main()
 {
@@ -23,10 +24,12 @@ int main()
 	auto bubbleResult = bubble_sort::sort(numbers);
 	auto insertionResult = insertion_sort::sort(numbers);
 	auto selectionResult = selection_sort::sort(numbers);
+	auto quickResult = quick_sort::sort(numbers);
 
 	printResult("Bubble sort", bubbleResult);
 	printResult("Insertion sort", insertionResult);
 	printResult("Selection sort", selectionResult);
+	printResult("Quick sort", quickResult);
 
 	return 0;
 }

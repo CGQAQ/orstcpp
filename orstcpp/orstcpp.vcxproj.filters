@@ -27,5 +27,8 @@
     <ClCompile Include="SelectionSort.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QuickSort.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
