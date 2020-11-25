@@ -24,7 +24,7 @@ int main()
 	};
 
 #if TEST==1
-	int inputAmount[] = { 0, 10, 100 };
+	int inputAmount[] = { 0, 10, 100, 1'000, 10'000 };
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> distr(-65535, 65535);

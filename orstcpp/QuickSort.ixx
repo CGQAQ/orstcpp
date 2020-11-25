@@ -1,35 +1,37 @@
 module;
-#include<vector>
-#include <span>
+#include <vector>
 export module QuickSort;
 
-void quickSort(std::span<int> io)
+// https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme
+int partition(std::vector<int>& io, int lo, int hi)
 {
-	if (io.size() <= 1)
-		return;
-	else if (io.size() == 2)
+	int pivot = io[(lo + hi) / 2];
+	int i = lo - 1, j = hi + 1;
+	while (true)
 	{
-		if (io.front() > io.back())
-			std::swap(io.front(), io.back());
-		return;
+		do
+		{
+			i = i + 1;
+		} while (io[i] < pivot);
+
+		do
+		{
+			j--;
+		} while (io[j] > pivot);
+		if (i >= j)
+			return j;
+		std::swap(io[i], io[j]);
 	}
-	int pivot = io.front();
-	int l{ 0 }, r{ static_cast<int>(io.size()) };
-	for (int i = 0; i < io.size(); ++i)
+}
+
+void quickSort(std::vector<int>& io, int lo, int hi)
+{
+	if (lo < hi)
 	{
-		auto& cur = io[i];
-		if (cur > pivot)
-		{
-			std::swap(cur, io[--r]);
-		}
-		else
-		{
-			l++;
-		}
+		int p = partition(io, lo, hi);
+		quickSort(io, lo, p);
+		quickSort(io, p + 1, hi);
 	}
-	std::swap(io.front(), io[l - 1]);
-	quickSort(io.subspan(0, l));
-	quickSort(io.subspan(r));
 }
 
 export namespace quick_sort
@@ -38,7 +40,7 @@ export namespace quick_sort
 	{
 		std::vector result(input);
 		// 2, 3, 1
-		quickSort(std::span(result));
+		quickSort(result, 0, result.size() - 1);
 		return result;
 	}
 }
