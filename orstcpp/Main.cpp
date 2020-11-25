@@ -4,6 +4,8 @@
 #include <ranges>
 #include <random>
 
+#define TEST 1
+
 import BubbleSort;
 import InsertionSort;
 import SelectionSort;
@@ -21,7 +23,8 @@ int main()
 		std::cout << std::endl;
 	};
 
-	int inputAmount[] = { 0, 10, 100, 1000, 10000 };
+#if TEST==1
+	int inputAmount[] = { 0, 10, 100 };
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<> distr(-65535, 65535);
@@ -41,7 +44,13 @@ int main()
 		printResult("Insertion sort", i, insertionResult);
 		printResult("Selection sort", i, selectionResult);
 		printResult("Quick sort", i, quickResult);
-
 	}
+#endif
+#if 0
+	std::vector input = {1,2,5,4,3};
+	auto quickResult = quick_sort::sort(input);
+	printResult("quicksort", 5, quickResult);
+#endif
+
 	return 0;
 }
