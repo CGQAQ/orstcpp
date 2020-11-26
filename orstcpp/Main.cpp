@@ -4,7 +4,7 @@
 #include <ranges>
 #include <random>
 
-#define TEST 1
+#define TEST 0
 
 import BubbleSort;
 import InsertionSort;
@@ -23,7 +23,7 @@ int main()
 		std::cout << std::endl;
 	};
 
-#if TEST==1
+#if TEST==0
 	int inputAmount[] = { 0, 10, 100, 1'000, 10'000 };
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -46,7 +46,7 @@ int main()
 		printResult("Quick sort", i, quickResult);
 	}
 #endif
-#if 0
+#if TEST==1
 	std::vector input = {1,2,5,4,3};
 	auto quickResult = quick_sort::sort(input);
 	printResult("quicksort", 5, quickResult);
